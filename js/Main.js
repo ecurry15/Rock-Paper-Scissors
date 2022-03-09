@@ -43,6 +43,7 @@ playerScore.push(1);
 } else if (/tie/gi.test(computerVsPlayer(playerSelection, computerSelection))) {
   ties.push(1);
 }
+console.log(computerVsPlayer(playerSelection, computerSelection));
 }
 if (playerScore.length > computerScore.length) {
   return "Congrats! You won the game";
