@@ -1,3 +1,6 @@
+window.onload = (event) => {
+
+
 let computerPlay = randomValue => {
 let randomPosition = Math.floor((Math.random() * randomValue.length));
 return randomValue[randomPosition];
@@ -59,5 +62,6 @@ if (playerScore.length > computerScore.length) {
 return "It was a tie game, let's play again!"
 }
 }
-console.log(game())
+console.log(game());
 
+};

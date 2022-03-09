@@ -1,0 +1,19 @@
+body {
+}
+#title {
+  color : white;
+  background-color: black;
+  width: 30%;
+  text-align: center;
+  padding-top: 0.5%;
+  padding-bottom: 1%;
+box-shadow: -2px 2px 12px rgba(0,0,0, .4);
+border-radius: 8px;
+}
+#img {
+  width: 10%;
+  height: 10%;
+  position: relative;
+  margin-left: 8%;
+  margin-top: ;
+}
