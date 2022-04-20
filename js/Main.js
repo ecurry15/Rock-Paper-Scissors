@@ -1,90 +1,219 @@
-const game = () => {
-let pScore = 0;
-let cScore = 0;
-
-const playMatch = () => {
-const options = document.querySelectorAll('.options button');
-
-const computerOptions = ["rock", "paper", "scissors"];
-
-
-options.forEach(option => {
-  option.addEventListener('click', function () {
-    const computerNumber = Math.floor(Math.random() * 3);
-    const computerChoice = computerOptions[computerNumber];
-    console.log(computerChoice);
-
-    compareHands(this.textContent, computerChoice);
-  });
-});
-};
-
-const updateScore = () => {
-  const playerScore = document.querySelector('.player-score p');
-  const computerScore = document.querySelector('.computer-score p');
-  const round = document.querySelector('.round');
-  playerScore.textContent = pScore;
-  computerScore.textContent = cScore;
-  if (pScore == 5) {
-    round.textContent = "Congrats you Won the game";
-        } else if (cScore == 5) {
-          round.textContent = "You lost this game try again";
-        }
-};
-
-const compareHands = (playerChoice, computerChoice) => {
-  const results = document.querySelector('.results');
-  //ROCK SECTION
-if (playerChoice === computerChoice) {
-results.textContent = "It was a tie.";
-return;
-};
-if (playerChoice === "rock") {
-if (computerChoice === "scissors") {
-  results.textContent = "You Won";
-  pScore++;
-  updateScore();
-  return;
-} else {
-  results.textContent = "You Lost";
-  cScore++;
-  updateScore();
-  return;
+//RANDOMLY SELECTS ROCK, PAPER, SCISSORS ---
+const computerSelection = function () {
+  let computerChoices = ["Rock", "Paper", "Scissors"];
+  let computerNum = Math.floor(Math.random() * (2 - 0 + 1) + 0);
+  return computerChoices[computerNum];
 }
+
+//SCORE ---
+let playerScore = document.querySelector('#playerNumber');
+playerScore.textContent = 5;
+
+let computerScore = document.querySelector('#computerNumber');
+computerScore.textContent = 5;
+
+//ROCK SECTION -----
+
+//TIE -----
+const rockTie = function () {
+  document.getElementById('results').style.display = "block";
+  document.querySelector('#results').textContent = "TIE!"
+  document.getElementById('playerIMG').style.display = "inline-flex";
+  document.getElementById('playerIMG').src = "/Rock-Paper-Scissors/Pictures/player-rock.png";
+  document.getElementById('playerIMG').style.marginTop = "0";
+  document.getElementById('computerIMG').style.display = "inline-flex";
+  document.getElementById('computerIMG').src = "/Rock-Paper-Scissors/Pictures/computer-rock.png";
+  document.getElementById('computerIMG').style.marginTop = "0";
 };
-//PAPER SECTION
-  if (playerChoice === "paper") {
-  if (computerChoice === "rock") {
-    results.textContent = "You Won";
-    pScore++;
-    updateScore();
-    return;
-  } else {
-    results.textContent = "You Lost";
-    cScore++;
-    updateScore();
-    return;
-  };
-  };
-  //SCISSORS SECTION
-  if (playerChoice === "scissors") {
-    if (computerChoice === "paper") {
-      results.textContent = "You Won";
-      pScore++;
-      updateScore();
-      return;
-    } else {
-      results.textContent = "You Lost";
-      cScore++;
-      updateScore();
-      return;
-    };
-    };
+
+//ROCK VS PAPER ----
+const rockVsPaper = function () {
+  document.getElementById('results').style.display = "block";
+  document.querySelector('#results').textContent = "I Won 🤖";
+  document.getElementById('playerIMG').style.display = "inline-flex";
+  document.getElementById('playerIMG').src = "/Rock-Paper-Scissors/Pictures/rock-red.png";
+  document.getElementById('playerIMG').style.marginTop = "0";
+  document.getElementById('computerIMG').style.display = "inline-flex";
+  document.getElementById('computerIMG').src = "/Rock-Paper-Scissors/Pictures/computer-paper.png";
+  document.getElementById('computerIMG').style.height = "18%";
+  document.getElementById('computerIMG').style.marginTop = "0";
+  playerScore.textContent--;
 };
-const restart = document.querySelector('.restart');
-restart.addEventListener('click', e => {
-location.reload();
+
+//ROCK VS SCISSORS -----
+const rockVsScissors = function () {
+  document.getElementById('results').style.display = "block";
+  document.querySelector('#results').textContent = "NICE! 👍";
+  document.getElementById('playerIMG').style.display = "inline-flex";
+  document.getElementById('playerIMG').src = "/Rock-Paper-Scissors/Pictures/rock-green.png";
+  document.getElementById('playerIMG').style.marginTop = "0";
+  document.getElementById('computerIMG').src = "/Rock-Paper-Scissors/Pictures/computer-scissors.png";
+  document.getElementById('computerIMG').style.display = "inline-flex";
+  document.getElementById('computerIMG').style.marginTop = "1.2%";
+  computerScore.textContent--;
+};
+
+//PAPER SECTION-----
+
+//TIE ---
+const paperTie = function () {
+  document.getElementById('results').style.display = "block";
+  document.querySelector('#results').textContent = "TIE!"
+  document.getElementById('playerIMG').style.display = "inline-flex";
+  document.getElementById('playerIMG').src = "/Rock-Paper-Scissors/Pictures/computer-paper.png";
+  document.getElementById('playerIMG').style.marginTop = "0";
+  document.getElementById('computerIMG').style.display = "inline-flex";
+  document.getElementById('computerIMG').src = "/Rock-Paper-Scissors/Pictures/computer-paper.png";
+  document.getElementById('computerIMG').style.marginTop = "0";
+};
+
+//PAPER VS SCISSORS ------
+const paperVsScissors = function () {
+  document.getElementById('results').style.display = "block";
+  document.querySelector('#results').textContent = "I Won 🤖";
+  document.getElementById('playerIMG').style.display = "inline-flex";
+  document.getElementById('playerIMG').src = "/Rock-Paper-Scissors/Pictures/paper-red.png";
+  document.getElementById('playerIMG').style.marginTop = "0";
+  document.getElementById('computerIMG').style.display = "inline-flex";
+  document.getElementById('computerIMG').src = "/Rock-Paper-Scissors/Pictures/computer-scissors.png";
+  document.getElementById('computerIMG').style.marginTop = "1.2%";
+  playerScore.textContent--;
+};
+
+//PAPER VS ROCK ----
+const paperVsRock = function () {
+  document.getElementById('results').style.display = "block";
+  document.querySelector('#results').textContent = "NICE! 👍";
+  document.getElementById('playerIMG').style.display = "inline-flex";
+  document.getElementById('playerIMG').src = "/Rock-Paper-Scissors/Pictures/paper-green.png";
+  document.getElementById('playerIMG').style.marginTop = "0";
+  document.getElementById('computerIMG').style.display = "inline-flex";
+  document.getElementById('computerIMG').src = "/Rock-Paper-Scissors/Pictures/computer-rock.png";
+  document.getElementById('computerIMG').style.marginTop = "0";
+  computerScore.textContent--;
+};
+//SCISSORS SECTION ----
+
+//TIE --
+const scissorsTie = function () {
+  document.getElementById('results').style.display = "block";
+  document.querySelector('#results').textContent = "TIE!"
+  document.getElementById('playerIMG').style.display = "inline-flex";
+  document.getElementById('playerIMG').src = "/Rock-Paper-Scissors/Pictures/player-scissors.png";
+  document.getElementById('playerIMG').style.marginTop = "1.2%";
+  document.getElementById('computerIMG').style.display = "inline-flex";
+  document.getElementById('computerIMG').src = "/Rock-Paper-Scissors/Pictures/computer-scissors.png";
+  document.getElementById('computerIMG').style.marginTop = "1.2%";
+};
+
+//SCISSORS VS ROCK ---- 
+const scissorsVsRock = function () {
+  document.getElementById('results').style.display = "block";
+  document.querySelector('#results').textContent = "I Won 🤖";
+  document.getElementById('playerIMG').style.display = "inline-flex";
+  document.getElementById('playerIMG').src = "/Rock-Paper-Scissors/Pictures/player-scissors-red.png";
+  document.getElementById('playerIMG').style.marginTop = "1.2%";
+  document.getElementById('computerIMG').style.display = "inline-flex";
+  document.getElementById('computerIMG').src = "/Rock-Paper-Scissors/Pictures/computer-rock.png";
+  document.getElementById('computerIMG').style.marginTop = "0";
+  playerScore.textContent--;
+};
+
+//SCISSORS VS PAPER ----
+const scissorsVsPaper = function () {
+  document.getElementById('results').style.display = "block";
+  document.querySelector('#results').textContent = "NICE! 👍";
+  document.getElementById('playerIMG').style.display = "inline-flex";
+  document.getElementById('playerIMG').src = "/Rock-Paper-Scissors/Pictures/player-scissors-green.png";
+  document.getElementById('playerIMG').style.marginTop = "1.2%";
+  document.getElementById('computerIMG').style.display = "inline-flex";
+  document.getElementById('computerIMG').src = "/Rock-Paper-Scissors/Pictures/computer-paper.png";
+  document.getElementById('computerIMG').style.marginTop = "0";
+  computerScore.textContent--;
+}
+//END OF GAME SECTION----
+
+//PLAYER WIN ----
+const playerWins = function () {
+  document.querySelector('#title').textContent = "You beat me! 🤯";
+  document.getElementById('body').style.backgroundImage = "none";
+  document.getElementById('body').style.backgroundColor = "rgb(36,130,40)";
+  if (computerScore.textContent > 0) {
+    computerScore.textContent--;
+  }
+};
+
+//COMPUTER WIN ---
+const computerWins = function () {
+  document.querySelector('#title').textContent = "ROBOT > HUMAN! 🤖";
+  document.getElementById('body').style.backgroundImage = "none";
+  document.getElementById('body').style.backgroundColor = "rgb(186,61,61)";
+  if (playerScore.textContent > 0) {
+    playerScore.textContent--;
+  }
+};
+//END OF GAME ---
+
+//WHEN PLAYER CLICKS ROCK,PAPER,OR SCISSORS ----
+
+//ROCK -----
+document.querySelector('#rock').addEventListener('click', function () {
+if (playerScore.textContent > 1 && computerScore.textContent > 1) {
+  if (computerSelection() === "Rock") {
+    rockTie();
+  } else if (computerSelection() === "Paper") {
+    rockVsPaper();
+  } else if (computerSelection() === "Scissors") {
+    rockVsScissors();
+  }
+  } else if (computerScore.textContent <= 1 && playerScore.textContent > 1) {
+playerWins();
+  } else if (playerScore.textContent <= 1 && computerScore.textContent > 1) {
+computerWins();
+  };
 });
-playMatch();
-};
-game();
+
+//PAPER ------
+document.querySelector('#paper').addEventListener('click', function () {
+  if (playerScore.textContent > 1 && computerScore.textContent > 1) {
+    if (computerSelection() === "Paper") {
+      paperTie();
+    } else if (computerSelection() === "Scissors") {
+      paperVsScissors();
+    } else if (computerSelection() === "Rock") {
+     paperVsRock();
+    }
+    } else if (computerScore.textContent <= 1 && playerScore.textContent > 1) {
+  playerWins();
+    } else if (playerScore.textContent <= 1 && computerScore.textContent > 1) {
+  computerWins();
+    };
+});
+
+//SCISSORS -----
+document.querySelector('#scissors').addEventListener('click', function () {
+  if (playerScore.textContent > 1 && computerScore.textContent > 1) {
+    if (computerSelection() === "Scissors") {
+      scissorsTie();
+    } else if (computerSelection() === "Rock") {
+      scissorsVsRock();
+    } else if (computerSelection() === "Paper") {
+     scissorsVsPaper();
+    }
+    } else if (computerScore.textContent <= 1 && playerScore.textContent > 1) {
+  playerWins();
+    } else if (playerScore.textContent <= 1 && computerScore.textContent > 1) {
+  computerWins();
+    };
+});
+
+//RESET GAME ----
+document.querySelector('#startOver').addEventListener('click', function () {
+  document.getElementById('results').style.display = "none";
+  document.getElementById('playerIMG').style.display = "none";
+  document.getElementById('computerIMG').style.display = "none";
+  playerScore.textContent = 5;
+  computerScore.textContent = 5;
+  document.querySelector('#title').textContent = "ROCK, PAPER, SCISSORS";
+  document.getElementById('body').style.backgroundImage = "linear-gradient(2deg, rgba(15, 15, 15) 38%, #4b4b4b)"
+});
