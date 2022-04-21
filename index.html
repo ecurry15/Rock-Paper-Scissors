@@ -5,13 +5,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors</title>
-  <script src="js/Main.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h1 id="title">Rock Paper Scissors</h1>
-  <p>Press F12, then click on the "Console" tab to see results.</p>
-  <p>Press F5 or refresh page to restart game.</p>
-  <img id="img" src="https://media.istockphoto.com/vectors/rock-paper-scissors-vector-illustration-vector-id1056840214?k=20&m=1056840214&s=612x612&w=0&h=NG6ZNvaujD7SlQFdeLxblIXzibx23zQJwZWe4Ue3LH0=" alt="Rock Paper Scissors Logo">
+<body id="body">
+  <div id="top-Screen">
+    <button id="startOver">Start Over</button>
+    <div id="score">
+      <p id="playerScore">YOU</p>
+      <p id="playerNumber">0</p>
+      <p id="computerNumber">0</p>
+      <p id="computerScore">CPU</p>
+    </div>
+  </div>
+  <h1 id="title">ROCK, PAPER, SCISSORS</h1>
+  <hr id="line">
+  <div id="choices">
+   <button id="rock"><img src="/Rock-Paper-Scissors/Pictures/rock.png" alt="Rock"></button>
+   <button id="paper"><img src="/Rock-Paper-Scissors/Pictures/paper.png" alt="Paper"></button>
+   <button id="scissors"><img src="/Rock-Paper-Scissors/Pictures/scissors.png" alt="Scissors"></button>
+  </div>
+  <h2 id="results">Nice !</h2>
+  <div id="playerVsCPU">
+<img src="/Rock-Paper-Scissors/Pictures/player-rock.png" alt="playerIMG" id="playerIMG">
+<img src="/Rock-Paper-Scissors/Pictures/computer-rock.png" alt="computerIMG" id="computerIMG">
+  </div>
+  
+<script src="js/Main.js"></script>
 </body>
 </html>

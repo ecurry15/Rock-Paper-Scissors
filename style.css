@@ -1,16 +1,197 @@
-#title {
-  color : white;
-  background-color: black;
-  width: 30%;
-  text-align: center;
-  padding-top: 0.5%;
-  padding-bottom: 1%;
-box-shadow: -2px 2px 12px rgba(0,0,0, .4);
-border-radius: 8px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-#img {
-  width: 10%;
-  height: 10%;
-  position: relative;
-  margin-left: 8%;
+
+#body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Iceland', cursive;
+background-image: linear-gradient(2deg, rgba(15, 15, 15) 38%, #4b4b4b);
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
+overflow: hidden;
+word-wrap: break-word;
+}
+/* STARTOVER AND SCORE */
+#top-Screen {
+display: flex;
+flex-direction: row;
+max-height: 5vh;
+padding: 6%;
+}
+
+#startOver {
+  font-family: 'Iceland', cursive;
+  font-weight: 500;
+  font-size: 1.4rem;
+display: flex;
+text-align: center;
+justify-content: center;
+align-content: center;
+margin-top: auto;
+margin-bottom: auto;
+padding-top: 1.5vh;
+padding-bottom: 1.5vh;
+padding-left: 3%;
+padding-right: 3%;
+}
+
+#startOver:hover {
+  background-color: rgb(67,136,247);
+  color: beige;
+}
+
+#score {
+margin-left: auto;
+margin-right: 2%;
+display: grid;
+grid-template-columns: auto auto;
+grid-template-areas: "1 2";
+gap: 15%;
+margin-top: 0;
+font-size: 1.3rem;
+color: whitesmoke;
+}
+
+#playerScore {
+grid-area: 1;
+margin-bottom: 0;
+margin-top: 0;
+}
+#playerNumber {
+grid-area: 2;
+margin-top: 0;
+text-align: center;
+}
+#computerScore {
+grid-area: 1;
+margin-bottom: 0;
+margin-top: 0;
+}
+#computerNumber {
+grid-area: 2;
+margin-top: 0;
+text-align: center;
+}
+
+/* TITLE SECTION */
+#title {
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 35%;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#line {
+  height: .7vh;
+  background-color: rgb(196,196,196);
+  border-color: rgb(196,196,196);
+}
+
+/* ROCK/PAPER/SCISSORS IMGS */
+#choices {
+margin-top: 7%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20%;
+}
+
+#rock {
+  margin-right: 0%;
+  margin-top: 3%;
+  width: 22%;
+  height: 22%;
+ display: inline-flex;
+ justify-content: center;
+ background: none;
+ border: none;
+}
+#rock:hover {
+ transform: scale(1.2);
+}
+#paper {
+  margin-top: 1%;
+  margin-left: -10%;
+  width: 15%;
+  height: 15%;
+  display: inline-flex;
+ justify-content: center;
+ background: none;
+ border: none;
+}
+#paper:hover {
+  transform: scale(1.2);
+ }
+#scissors {
+  margin-top: 3%;
+  width: 13%;
+  height: 15%;
+  display: inline-flex;
+ justify-content: center;
+ background: none;
+ border: none;
+}
+#scissors:hover {
+  transform: scale(1.2);
+ }
+
+ /*PLAYER / COMPUTER SELECTION IMGS */
+#results {
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 4%;
+  display: none;
+  
+}
+#playerVsCPU {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15vw;
+  margin-left: -5%;
+  margin-top: 0;
+}
+
+#playerIMG {
+  margin-top: 0;
+  display: none;
+ justify-content: center;
+ width: 20vw;
+}
+
+#computerIMG {
+  margin-top: 0;
+  margin-right: -5vw;
+  display: none;
+ justify-content: center;
+ width: 20vw;
+}
+
+/*DESKTOP */
+
+@media (min-width: 769px) {
+  #title {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  #choices {
+    margin-top: 3%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 25%;
+    }
+    #playerIMG {
+     width: 8vw;
+    }
+    #computerIMG {
+      width: 8vw;
+    }
 }
